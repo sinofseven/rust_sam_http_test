@@ -10,7 +10,18 @@ Resources:
   HttpApi:
     Type: AWS::Serverless::HttpApi
     Properties:
-      CorsConfiguration: "True"
+      CorsConfiguration:
+        AllowOrigins:
+          - "*"
+        AllowHeaders:
+          - Content-Type
+          - X-Amz-Date
+          - Authorization
+          - X-Api-Key
+          - X-Amz-Security-Token
+        AllowMethods:
+          - GET
+          - OPTION
 
   SearchFunction:
     Type: AWS::Serverless::Function
