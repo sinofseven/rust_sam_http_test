@@ -21,7 +21,6 @@ Resources:
           - X-Amz-Security-Token
         AllowMethods:
           - GET
-          - OPTION
 
   SearchFunction:
     Type: AWS::Serverless::Function
