@@ -7,6 +7,11 @@ Parameters:
     Default: api
 
 Resources:
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration: "True"
+
   SearchFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -16,3 +21,11 @@ Resources:
       MemorySize: 256
       Timeout: 30
       Runtime: provided
+      Events:
+        HttpApi:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: GET
+            Path: /search
+            PayloadFormatVersion: "1.0"
