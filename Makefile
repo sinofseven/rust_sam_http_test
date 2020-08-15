@@ -13,7 +13,7 @@ build:
 	docker image rm $$name;
 
 package:
-	poetry run sam package --s3-bucket $$SAM_ARTIFACT_BUCKET --output-template-file $(template_path) --template-file sam.yml
+	poetry run aws cloudformation package --s3-bucket $$SAM_ARTIFACT_BUCKET --output-template-file $(template_path) --template-file sam.yml
 
 deploy: package
 	poetry run aws cloudformation deploy \
