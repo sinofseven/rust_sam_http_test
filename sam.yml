@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Parameters:
+  Env:
+    Type: String
+    Default: api
+
+Resources:
+  SearchFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      AutoPublishAlias: !Ref Env
+      CodeUri: dist/search.zip
+      Handler: hello
+      MemorySize: 256
+      Timeout: 30
+      Runtime: provided
