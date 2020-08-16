@@ -1,6 +1,6 @@
 SHELL = /usr/bin/env bash -xeuo pipefail
 
-stack_name:=ffxiv-item-name-database-api
+stack_name:=rust-test-api
 template_path:=template.yml
 
 build:
